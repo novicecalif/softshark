@@ -14,9 +14,11 @@ CONFIG_PATH = os.path.join(os.path.dirname(softshark.__file__), 'config.ini')
 
 
 def get_config():
+    print('i am in rev 2')
     print('config path = ', CONFIG_PATH)
     #return iniconfig.IniConfig(CONFIG_PATH)
     Config = parser.ConfigParser()
+    print('File about to a = %s' % CONFIG_PATH)
     Config.read(CONFIG_PATH)
     path = Config.get('tshark','tshark_path').strip()
     print('path = %s' % path)

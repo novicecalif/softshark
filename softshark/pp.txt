@@ -1,0 +1,19 @@
+************* Module softshark.capture
+W: 15, 0: Relative import 'tshark', should be 'softshark.tshark' (relative-import)
+R: 40, 0: Too many instance attributes (22/7) (too-many-instance-attributes)
+R: 47, 4: Too many arguments (16/5) (too-many-arguments)
+R: 47, 4: Too many local variables (17/15) (too-many-locals)
+E:131,39: Module 'subprocess' has no 'DEVNULL' member (no-member)
+R:138, 4: Too many branches (17/12) (too-many-branches)
+W:216, 8: Specify string format arguments as logging function parameters (logging-not-lazy)
+W:217, 8: Specify string format arguments as logging function parameters (logging-not-lazy)
+C:229,38: Variable name "f" doesn't conform to snake_case naming style (invalid-name)
+W:197,53: Unused argument 'stdin' (unused-argument)
+R:235, 8: Unnecessary "else" after "return" (no-else-return)
+E:238,19: Instance of 'Capture' has no '_packets_from_tshark_sync' member (no-member)
+C:245, 4: Constant name "capture" doesn't conform to UPPER_CASE naming style (invalid-name)
+W:246, 4: Access to a protected member _get_tshark_process of a client class (protected-access)
+
+------------------------------------------------------------------
+Your code has been rated at 8.46/10 (previous run: 8.46/10, +0.00)
+

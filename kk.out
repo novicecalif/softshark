@@ -1,0 +1,87 @@
+************* Module softshark.capture
+C:132, 0: Line too long (108/100) (line-too-long)
+C:155, 0: Line too long (115/100) (line-too-long)
+C:156, 0: Wrong continued indentation (remove 43 spaces).
+                                                                  self.encryption[0] + '"']
+                       |                                          ^ (bad-continuation)
+C:159, 0: Line too long (108/100) (line-too-long)
+C:189, 0: Trailing whitespace (trailing-whitespace)
+C:189, 0: Exactly one space required after comma
+        parameters = ([self._get_tshark_path(), "-i","en0","-c","2", "-w","pk", 
+                                                    ^ (bad-whitespace)
+C:189, 0: Exactly one space required after comma
+        parameters = ([self._get_tshark_path(), "-i","en0","-c","2", "-w","pk", 
+                                                          ^ (bad-whitespace)
+C:189, 0: Exactly one space required after comma
+        parameters = ([self._get_tshark_path(), "-i","en0","-c","2", "-w","pk", 
+                                                               ^ (bad-whitespace)
+C:189, 0: Exactly one space required after comma
+        parameters = ([self._get_tshark_path(), "-i","en0","-c","2", "-w","pk", 
+                                                                         ^ (bad-whitespace)
+C:190, 0: Wrong continued indentation (add 2 spaces).
+                     "-I","-l", "-n", "-T", output_type] + 
+                     ^ | (bad-continuation)
+C:190, 0: Trailing whitespace (trailing-whitespace)
+C:190, 0: Exactly one space required after comma
+                     "-I","-l", "-n", "-T", output_type] + 
+                         ^ (bad-whitespace)
+C:191, 0: Wrong continued indentation (add 14 spaces).
+        self.get_parameters(packet_count=packet_count) + output_parameters)
+        ^             | (bad-continuation)
+C:192, 0: Exactly one space required after comma
+        print ('parameter = ', parameters,'type(par) = ',type(parameters))
+                                         ^ (bad-whitespace)
+C:192, 0: Exactly one space required after comma
+        print ('parameter = ', parameters,'type(par) = ',type(parameters))
+                                                        ^ (bad-whitespace)
+C:196, 0: Trailing whitespace (trailing-whitespace)
+C:197, 0: Exactly one space required before assignment
+        proc= subprocess.Popen(parameters,
+            ^ (bad-whitespace)
+C:203, 0: Exactly one space required after comma
+        print('\n\noutput type = \n\n',type(proc.stdout))
+                                      ^ (bad-whitespace)
+C:210, 0: Exactly one space required after comma
+        jsonS,stderr = proc.communicate()
+             ^ (bad-whitespace)
+C:214, 0: Trailing whitespace (trailing-whitespace)
+C:215, 0: Exactly one space required after comma
+        with open('json.out','w') as f:
+                            ^ (bad-whitespace)
+C:216, 0: Exactly one space required after comma
+            json.dump(d,f)
+                       ^ (bad-whitespace)
+W:230, 0: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+C:231, 0: Trailing whitespace (trailing-whitespace)
+W:231, 0: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
+W: 15, 0: Relative import 'tshark', should be 'softshark.tshark' (relative-import)
+C: 20, 0: Missing class docstring (missing-docstring)
+C: 24, 0: Missing class docstring (missing-docstring)
+R: 37, 0: Too many instance attributes (22/7) (too-many-instance-attributes)
+R: 44, 4: Too many arguments (16/5) (too-many-arguments)
+R: 44, 4: Too many local variables (17/15) (too-many-locals)
+E: 78,12: Instance of 'Capture' has no 'set_debug' member (no-member)
+C: 98, 4: Missing method docstring (missing-docstring)
+C:103, 4: Missing method docstring (missing-docstring)
+E:124,39: Module 'subprocess' has no 'DEVNULL' member (no-member)
+R:131, 4: Too many branches (17/12) (too-many-branches)
+W:194, 8: Specify string format arguments as logging function parameters (logging-not-lazy)
+W:195, 8: Specify string format arguments as logging function parameters (logging-not-lazy)
+W:207,-1: String statement has no effect (pointless-string-statement)
+C:210, 8: Variable name "jsonS" doesn't conform to snake_case naming style (invalid-name)
+C:211, 8: Variable name "d" doesn't conform to snake_case naming style (invalid-name)
+C:215,37: Variable name "f" doesn't conform to snake_case naming style (invalid-name)
+W:176,53: Unused argument 'stdin' (unused-argument)
+R:221, 8: Unnecessary "else" after "return" (no-else-return)
+E:224,19: Instance of 'Capture' has no '_packets_from_tshark_sync' member (no-member)
+C:230, 3: Constant name "c" doesn't conform to UPPER_CASE naming style (invalid-name)
+W:231, 3: Access to a protected member _get_tshark_process of a client class (protected-access)
+W:  6, 0: Unused import os (unused-import)
+W:  7, 0: Unused import threading (unused-import)
+W:  9, 0: Unused import concurrent.futures (unused-import)
+W: 10, 0: Unused import sys (unused-import)
+W: 12, 0: Unused LooseVersion imported from distutils.version (unused-import)
+
+------------------------------------------------------------------
+Your code has been rated at 5.46/10 (previous run: 5.21/10, +0.25)
+

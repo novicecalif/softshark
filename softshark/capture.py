@@ -49,12 +49,12 @@ class Capture(object):
     DEFAULT_LOG_LEVEL = logging.CRITICAL
     SUPPORTED_ENCRYPTION_STANDARDS = ["wep", "wpa-pwk", "wpa-pwd", "wpa-psk"]
 
-    def __init__(self, display_filter=None, only_summaries=False,
+    def __init__(self, display_filter=None, only_summaries=False,interface=None,
                  eventloop=None, decryption_key=None, encryption_type="wpa-pwd",
                  output_file=None, decode_as=None, disable_protocol=None,
                  tshark_path=None, override_prefs=None, capture_filter=None,
                  use_json=True, include_raw=False, custom_parameters=None,
-                 debug=False):
+                 debug=False,monitor_mode=True):
 
         self.loaded = True
         self.tshark_path = tshark_path
@@ -77,7 +77,8 @@ class Capture(object):
         self._closed = False
         self._custom_parameters = custom_parameters
         self.__tshark_version = None
-
+        self._interface = interface
+        self._monitor_mode = monitor_mode
 
         if include_raw and not use_json:
             raise RawMustUseJsonException("use_json must be True if include_raw")
@@ -155,6 +156,12 @@ class Capture(object):
         if packet_count:
             params += ["-c", str(packet_count)]
 
+        if self._interface:
+            params += ["-i", str(self._interface)]
+
+        if self._monitor_mode:
+            params += ["-I"]
+
         if self._custom_parameters:
             if isinstance(self._custom_parameters, list):
                 params += self._custom_parameters
@@ -212,8 +219,7 @@ class Capture(object):
         else:
             output_type = "psml" if self._only_summaries else "pdml"
 
-        parameters = ([self._get_tshark_path(), "-i", "en0",
-                       "-I", "-l", "-n", "-T", output_type] +
+        parameters = ([self._get_tshark_path(), "-l", "-n", "-T", output_type] +
                       self.get_parameters(packet_count=packet_count) +
                       output_parameters)
         print ('parameter = ', parameters, 'type(par) = ', type(parameters))

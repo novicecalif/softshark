@@ -87,8 +87,8 @@ def get_tshark_interfaces(tshark_path=None):
     """
     parameters = [get_process_path(tshark_path), "-D"]
     with open(os.devnull, "w") as null:
-        tshark_interfaces = subprocess.check_output(parameters,
-                                                    stderr=null).decode("utf-8")
+        tshark_interfaces = subprocess.check_output(
+                                parameters, stderr=null).decode("utf-8")
     print('raw interfaces = %s' % tshark_interfaces)
     return [line.split(".")[0] for line in tshark_interfaces.splitlines()]
 
@@ -97,13 +97,15 @@ def get_tshark_version(tshark_path=None):
     """ Get Tshark version."""
     parameters = [get_process_path(tshark_path), "-v"]
     with open(os.devnull, "w") as null:
-        version_output = subprocess.check_output(parameters, stderr=null).decode("ascii")
+        version_output = subprocess.check_output(parameters,
+                                                 stderr=null).decode("ascii")
 
     version_line = version_output.splitlines()[0]
     pattern = r'.*\s(\d+\.\d+\.\d+).*'  # match " #.#.#" version pattern
     version = re.match(pattern, version_line)
     if not version:
-        raise TSharkVersionException("Unable to parse TShark version from: {}".format(version_line))
+        raise TSharkVersionException("Unable to parse TShark version from: {}"
+                                     .format(version_line))
     version_string = version.groups()[0]  # Use first match found
     return LooseVersion(version_string)
 
@@ -119,7 +121,7 @@ def tshark_supports_json(tshark_version):
 
 
 def get_tshark_display_filter_flag(tshark_version):
-    """Returns '-Y' for tshark versions >= 1.10.0 and '-R' for older versions."""
+    """Returns '-Y' for tshark versions >= 1.10.0 and '-R' for older version"""
     if tshark_version >= LooseVersion("1.10.0"):
         return "-Y"
     else:

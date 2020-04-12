@@ -10,7 +10,9 @@ from softshark import tshark as st
 from softshark import config as sc
 
 
-print ('hurray sc dir = %s' % dir(sc))
+print('hurray sc dir = %s' % dir(sc))
+
+
 class TestSoftshark(unittest.TestCase):
     """Tests for `softshark` package."""
 
@@ -41,6 +43,8 @@ class TestSoftshark(unittest.TestCase):
         output = st.tshark_supports_json('2.6.7')
         assert(output == True)
 """
+
+
     def test_softshark_config(self):
         output = sc.get_config()
         print(output)
